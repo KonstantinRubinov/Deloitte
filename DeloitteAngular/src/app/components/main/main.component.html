@@ -1,0 +1,22 @@
+<div class="center">
+
+  <h2 *ngIf="!haveList">LOOKING FOR AN EMPLOYEE</h2>
+
+  <h2 *ngIf="haveList">SEARCH RESULTS</h2>
+  <h3>Click on the search bar to learn our sugestions</h3>
+  
+  <div id="flex">
+    <app-autocomplite id="compliteCom"></app-autocomplite>
+    <img src="/assets/images/search.png" (click)="haveAlist()">
+  </div>
+
+
+  <ol *ngIf="haveList">
+    <li *ngFor="let person of findPersons">
+      <app-person-card [person]="person"></app-person-card>
+    </li>
+  </ol>
+
+  
+  
+</div>

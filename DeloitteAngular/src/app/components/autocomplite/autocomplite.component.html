@@ -1,0 +1,6 @@
+<input type="text" autocomplete=off #searchInfo="ngModel" placeholder="Search..." class="form-control" [(ngModel)]="str" (ngModelChange)="SearchByString()" name="search" (focus)="focusFunction()" (blur)="focusOutFunction()" id="autocomplite">
+<ul>
+  <li *ngFor="let person of persons">
+    <app-person-card [person]="person" [str]="str" *ngIf="focus"></app-person-card>
+  </li>
+</ul>

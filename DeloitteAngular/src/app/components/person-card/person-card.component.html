@@ -1,0 +1,15 @@
+<div class="card">
+  
+    <img class="left-person-image" src='http://localhost:51414/{{person.imageUrl}}' alt="left person image">
+
+    <div class="person-data">
+      <p *ngIf="splittedName" id="name">{{splittedName[0]}}<span>{{str}}</span>{{splittedName[1]}}</p>
+      <p *ngIf="!splittedName" id="name">{{person.name}}</p>
+      
+      <p *ngIf="splittedWork" id="Work">{{splittedWork[0]}}<span>{{str}}</span>{{splittedWork[1]}}</p>
+      <p *ngIf="!splittedWork" id="Work">{{person.workTitle}}</p>
+    </div>
+</div>
+
+
+
