@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DeloitteSystem
 {
@@ -27,16 +23,6 @@ namespace DeloitteSystem
 				return instance;
 			}
 		}
-
-
-
-		
-
-
-
-
-
-
 
 		public DataSet personsSet;
 		private DataTable persons;
@@ -65,14 +51,6 @@ namespace DeloitteSystem
 			personsSet.Tables["persons"].Rows.Add(myNewRow);
 		}
 
-
-
-
-
-
-
-
-
 		private void MakeDataSet()
 		{
 			personsSet = new DataSet("personsSet");
@@ -95,18 +73,9 @@ namespace DeloitteSystem
 			name.DataType = Type.GetType("System.String");
 			persons.Columns.Add(name);
 
-
 			DataColumn[] keys = new DataColumn[1];
 			keys[0] = name;
 			persons.PrimaryKey = keys;
 		}
-
-
-
-
-
-
-
-
 	}
 }

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace DeloitteSystem
 {
-	public class PersonsLogic
+	public class PersonsManager: IPersonsRepository
 	{
 		private Person personsDB = Person.Instance;
 
@@ -16,11 +11,9 @@ namespace DeloitteSystem
 		{
 			List<PersonModel> personsList = new List<PersonModel>();
 
-			PersonModel person=null;
-
 			for (int i = 0; i < personsDB.personsSet.Tables["persons"].Rows.Count; i++)
 			{
-				person = new PersonModel();
+				PersonModel person = new PersonModel();
 				person.name = personsDB.personsSet.Tables["persons"].Rows[i]["name"].ToString();
 				person.workTitle = personsDB.personsSet.Tables["persons"].Rows[i]["workTitle"].ToString();
 				person.imageUrl = "assets/images/" + personsDB.personsSet.Tables["persons"].Rows[i]["imageUrl"].ToString();
@@ -29,7 +22,6 @@ namespace DeloitteSystem
 			}
 			return personsList;
 		}
-
 
 		public PersonModel GetPersonByName(string name)
 		{
@@ -59,7 +51,6 @@ namespace DeloitteSystem
 			return GetPersonByName(newPerson.name);
 		}
 
-
 		public PersonModel UpdatePerson(PersonModel newPerson)
 		{
 			DataRow[] rows = personsDB.personsSet.Tables["persons"].Select($"id={newPerson.name}");
@@ -70,8 +61,6 @@ namespace DeloitteSystem
 
 			return GetPersonByName(newPerson.name);
 		}
-
-
 
 		public void DeletePerson(string name)
 		{
@@ -84,12 +73,10 @@ namespace DeloitteSystem
 			personsDB.personsSet.Tables["persons"].AcceptChanges();
 		}
 
-
 		public List<PersonModel> GetAllPersonsByString(string search)
 		{
 			List<PersonModel> personsList = new List<PersonModel>();
 
-			PersonModel person = null;
 			for (int i = 0; i < personsDB.personsSet.Tables["persons"].Rows.Count; i++)
 			{
 				if (search.Length > 1)
@@ -98,7 +85,7 @@ namespace DeloitteSystem
 						personsDB.personsSet.Tables["persons"].Rows[i]["workTitle"].ToString().ToLower().Contains(search.ToLower()) ||
 						personsDB.personsSet.Tables["persons"].Rows[i]["imageUrl"].ToString().ToLower().Contains(search.ToLower()))
 						{
-							person = new PersonModel();
+							PersonModel person = new PersonModel();
 							person.name = personsDB.personsSet.Tables["persons"].Rows[i]["name"].ToString();
 							person.workTitle = personsDB.personsSet.Tables["persons"].Rows[i]["workTitle"].ToString();
 							person.imageUrl = "assets/images/" + personsDB.personsSet.Tables["persons"].Rows[i]["imageUrl"].ToString();
@@ -107,7 +94,7 @@ namespace DeloitteSystem
 				}
 				else
 				{
-					person = new PersonModel();
+					PersonModel person = new PersonModel();
 					person.name = personsDB.personsSet.Tables["persons"].Rows[i]["name"].ToString();
 					person.workTitle = personsDB.personsSet.Tables["persons"].Rows[i]["workTitle"].ToString();
 					person.imageUrl = "assets/images/" + personsDB.personsSet.Tables["persons"].Rows[i]["imageUrl"].ToString();
@@ -116,7 +103,5 @@ namespace DeloitteSystem
 			}
 			return personsList;
 		}
-
-
 	}
 }

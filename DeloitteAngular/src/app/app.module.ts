@@ -31,7 +31,6 @@ import { AutocompliteComponent } from './components/autocomplite/autocomplite.co
     AppRoutingModule,
     FormsModule,
     NgReduxModule
-    
   ],
   providers: [],
   bootstrap: [LayoutComponent]

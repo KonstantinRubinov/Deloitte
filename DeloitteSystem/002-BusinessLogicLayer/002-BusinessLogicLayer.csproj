@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logics\PersonsLogic.cs" />
+    <Compile Include="DataManager\PersonsManager.cs" />
     <Compile Include="Model\PersonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IPersonsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\001-DataAccessLayer\001-DataAccessLayer.csproj">

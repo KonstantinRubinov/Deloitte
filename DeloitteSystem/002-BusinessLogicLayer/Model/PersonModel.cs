@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DeloitteSystem
+﻿namespace DeloitteSystem
 {
 	public class PersonModel
 	{
@@ -12,13 +6,11 @@ namespace DeloitteSystem
 		private string _workTitle;
 		private string _name;
 
-
 		public string imageUrl
 		{
 			get { return _imageUrl; }
 			set { _imageUrl = value; }
 		}
-
 
 		public string workTitle
 		{
